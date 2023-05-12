@@ -68,7 +68,6 @@ submissions = ['SUB']
 filtered_df2['Method'] = filtered_df2['Method'].replace(decisions, 'Decision')
 filtered_df2['Method'] = filtered_df2['Method'].replace(submissions, 'Submission')
 
-#filtered_df2.to_csv('clean_df.csv', index = False)
 df = filtered_df2
 
 # Exploratory Data Analysis (EDA)
