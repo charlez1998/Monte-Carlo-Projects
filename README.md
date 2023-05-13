@@ -134,6 +134,6 @@ Here is a tabulated version of the stacked bar plot above:
 
 Notice how the frequency of matches that end by a decision decreases while the frequency of matches that end with a knockout/tko increases as the weight class gets heavier.
 
-# Monte Carlo Simulation
+# Simulation Results
 
 Please refer to the notebook "UFC MC Sim Results" to view the specific simulation results across the three events: UFC Fight Night: Pavlovich vs Blaydes, UFC Fight Night: Song vs Simón and UFC 288: Sterling vs Cejudo
