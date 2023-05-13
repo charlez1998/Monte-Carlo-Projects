@@ -5,6 +5,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tabulate import tabulate
+import math
+import random as rnd
+import numpy.random as npr
+import scipy.stats as ss
 
 df = pd.read_csv("UFC Matches April 2023.csv")
 
@@ -42,9 +46,10 @@ filtered_df1 = df.loc[~df['Method'].isin(removed_methods)]
 filtered_df2 = filtered_df1.loc[~df['Outcome'].isin(removed_outcomes)]
 filtered_df2['Method'] = filtered_df2['Method'].apply(lambda x: x.strip())
 
+#mapping weights to weight class label and assigning unknown to empty weight entries
+
 filtered_df2.loc[df['Weight'] == '--', 'Weight Class'] = 'Unknown'
 
-#mapping weights to weight class label
 weight_mapping = {
     'Strawweight': range(0, 116),
     'Flyweight': range(116, 126),
@@ -60,6 +65,8 @@ weight_mapping = {
 mask = filtered_df2['Weight'] != '--'
 filtered_df2.loc[mask, 'Weight'] = filtered_df2.loc[mask, 'Weight'].str.replace('lbs.', '').astype(int)
 filtered_df2['Weight Class'] = filtered_df2['Weight'].apply(lambda x: next((k for k, v in weight_mapping.items() if x in v), 'Unknown'))
+
+#group specific outcomes to the three notable methods decision, ko/tko and submission
 
 decisions = ['U-DEC', 'S-DEC', 'M-DEC', 'Decision']
 kos = ['KO/TKO']
@@ -193,11 +200,6 @@ df = transform_dataset(df)
 df.head()
 
 # The beginning of our Monte Carlo Simulation
-
-import math
-import random as rnd
-import numpy.random as npr
-import scipy.stats as ss
 
 # sample proportion p calculation
 def calculate_p(statistic, total_fights):
