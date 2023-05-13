@@ -1,4 +1,4 @@
-# Predictions for UFC Fight Night: Pavlovich vs Blaydes, UFC Fight Night: Song vs Simón and UFC 288: Sterling vs Cejudo
+# 10,000 Monte Carlo Simulations to predict UFC fights
 
 I will be conducting 10,000 monte carlo simulations per matchup and will attempt to predict its outcome. This includes the specific winner of the fight and the method in which the win was carried out whether that be through decision, KO/TKO, or any form of submission. 
 
@@ -24,12 +24,12 @@ I used [Browserflow](https://browserflow.app/) to grab all the matches on fightm
 
 The elements that I scraped include: 
 
-*Fighter Name
-*Weight (xyz lbs) 
-*Outcome (Win/Lose)
-*Full Matchup (Fighter vs His Opponent)
-*Round that the match ended in
-*Time that the match ended in
+* Fighter Name
+* Weight (xyz lbs) 
+* Outcome (Win/Lose)
+* Full Matchup (Fighter vs His Opponent)
+* Round that the match ended in
+* Time that the match ended in
 
 ## Data Cleaning
 After scraping the data, I needed to clean it up so that it would be useable for some EDA and simulation. The following changes were made:
@@ -65,70 +65,75 @@ I wanted to answer the following questions:
 
 Here is a tabulated version of the stacked bar plot above: 
 
-<p align="center">
-    <table>
-        <tr>
-            <th></th>
-            <th>Decision</th>
-            <th>KO/TKO</th>
-            <th>Submission</th>
-        </tr>
-        <tr>
-            <td>Strawweight</td>
-            <td>61.87%</td>
-            <td>15.33%</td>
-            <td>22.80%</td>
-        </tr>
-        <tr>
-            <td>Flyweight</td>
-            <td>55.87%</td>
-            <td>21.13%</td>
-            <td>22.99%</td>
-        </tr>
-        <tr>
-            <td>Bantamweight</td>
-            <td>53.20%</td>
-            <td>27.17%</td>
-            <td>19.62%</td>
-        </tr>
-        <tr>
-            <td>Featherweight</td>
-            <td>50.85%</td>
-            <td>28.35%</td>
-            <td>20.80%</td>
-        </tr>
-        <tr>
-            <td>Lightweight</td>
-            <td>46.17%</td>
-            <td>29.13%</td>
-            <td>24.70%</td>
-        </tr>
-        <tr>
-            <td>Welterweight</td>
-            <td>44.91%</td>
-            <td>33.39%</td>
-            <td>21.70%</td>
-        </tr>
-        <tr>
-            <td>Middleweight</td>
-            <td>36.60%</td>
-            <td>39.79%</td>
-            <td>23.60%</td>
-        </tr>
-        <tr>
-            <td>Light Heavyweight</td>
-            <td>33.15%</td>
-            <td>46.24%</td>
-            <td>20.61%</td>
-        </tr>
-        <tr>
-            <td>Heavyweight</td>
-            <td>25.21%</td>
-            <td>52.24%</td>
-            <td>22.55%</td>
-        </tr>
-    </table>
-</p>
+<p></p>
 
+<table align="center">
+  <tr>
+    <th></th>
+    <th>Decision</th>
+    <th>KO/TKO</th>
+    <th>Submission</th>
+  </tr>
+  <tr>
+    <td>Strawweight</td>
+    <td>61.87%</td>
+    <td>15.33%</td>
+    <td>22.80%</td>
+  </tr>
+  <tr>
+    <td>Flyweight</td>
+    <td>55.87%</td>
+    <td>21.13%</td>
+    <td>22.99%</td>
+  </tr>
+  <tr>
+    <td>Bantamweight</td>
+    <td>53.20%</td>
+    <td>27.17%</td>
+    <td>19.62%</td>
+  </tr>
+  <tr>
+    <td>Featherweight</td>
+    <td>50.85%</td>
+    <td>28.35%</td>
+    <td>20.80%</td>
+  </tr>
+  <tr>
+    <td>Lightweight</td>
+    <td>46.17%</td>
+    <td>29.13%</td>
+    <td>24.70%</td>
+  </tr>
+  <tr>
+    <td>Welterweight</td>
+    <td>44.91%</td>
+    <td>33.39%</td>
+    <td>21.70%</td>
+  </tr>
+  <tr>
+    <td>Middleweight</td>
+    <td>36.60%</td>
+    <td>39.79%</td>
+    <td>23.60%</td>
+  </tr>
+  <tr>
+    <td>Light Heavyweight</td>
+    <td>33.15%</td>
+    <td>46.24%</td>
+    <td>20.61%</td>
+  </tr>
+  <tr>
+    <td>Heavyweight</td>
+    <td>25.21%</td>
+    <td>52.24%</td>
+    <td>22.55%</td>
+  </tr>
+</table>
 
-Notice how the frequency of matches that end by a decision decrease while the frequency of matches that end with a knockout/tko increase as the weight class gets heavier.
+<p></p>
+
+Notice how the frequency of matches that end by a decision decreases while the frequency of matches that end with a knockout/tko increases as the weight class gets heavier.
+
+# Monte Carlo Simulation
+
+Please refer to the notebook "UFC MC Sim Results" to view the specific simulation results across the three events: UFC Fight Night: Pavlovich vs Blaydes, UFC Fight Night: Song vs Simón and UFC 288: Sterling vs Cejudo
