@@ -34,21 +34,101 @@ The elements that I scraped include:
 ## Data Cleaning
 After scraping the data, I needed to clean it up so that it would be useable for some EDA and simulation. The following changes were made:
 
-# delete first row of every fighter
-
-#find matches that are upcoming and delete them
-
-# delete "weight text" in weight column
-
-# keep only opponents name in matchup column
-
-#discovered there is a duplicate fighter name 
-
-
-#types of outcomes we don't want in our dataset
-
-#mapping weights to weight class label and assigning unknown to empty weight entries
-
-#grouped specific outcomes to the three notable methods decision, ko/tko and submission
+* Deleted the first row of every fighter in the dataframe as it did not contain any match details. 
+* Deleted all matches for upcoming UFC events. These matches were labelled as "NEXT". 
+* In the matchup column, it contained both fighter names. when we only wanted to keep only opponents name in matchup column
+* Removed outcomes we don't want in our dataset. This includes the likes of No Contest (NC) or Draws.
+* Removed methods we don't want in our dataset. This includes the likes of Overturned, Could Not Continue (CNC) or Other.
+* Cleaned the weight column by removing the "weight" and 'lbs' text from every entry while mapping numeric weights to a weight class label (lightweight, heavyweight, etc). 
+* Narrowed down the remaining outcomes to three easily recognizable win methods: Decision, KO/TKO and Submission. 
 
 ## Exploratory Data Analysis (EDA)
+
+I wanted to answer the following questions: 
+
+**What is the most common method of winning?** 
+<p align="center">
+<img src="https://github.com/charlez1998/Monte-Carlo-Projects/assets/37009618/55e7bc2a-d8ec-47c6-8e64-08b25f731dc5" width=75% height=75%>
+</p>
+
+**For fighters that win through KO/Submission what round does it typically occur in?**
+
+  <tr>
+    <td align="left"><img src="https://github.com/charlez1998/Monte-Carlo-Projects/assets/37009618/e333f291-ef12-4df0-a474-2128d8ec1992" width=48% height=48%></td>
+    <td align="right"><img src="https://github.com/charlez1998/Monte-Carlo-Projects/assets/37009618/e0a9fec6-df85-4f16-8445-890638481938" width=48% height=48%></td>
+  </tr>
+  
+**Is there any discrepancy in the way fighters win across different weight classes?**
+<p align="center">
+<img src="https://github.com/charlez1998/Monte-Carlo-Projects/assets/37009618/d0996566-48a5-4942-b764-1d16a8eb9c26" width=75% height=75%>
+</p>
+
+Here is a tabulated version of the stacked bar plot above: 
+
+<p align="center">
+    <table>
+        <tr>
+            <th></th>
+            <th>Decision</th>
+            <th>KO/TKO</th>
+            <th>Submission</th>
+        </tr>
+        <tr>
+            <td>Strawweight</td>
+            <td>61.87%</td>
+            <td>15.33%</td>
+            <td>22.80%</td>
+        </tr>
+        <tr>
+            <td>Flyweight</td>
+            <td>55.87%</td>
+            <td>21.13%</td>
+            <td>22.99%</td>
+        </tr>
+        <tr>
+            <td>Bantamweight</td>
+            <td>53.20%</td>
+            <td>27.17%</td>
+            <td>19.62%</td>
+        </tr>
+        <tr>
+            <td>Featherweight</td>
+            <td>50.85%</td>
+            <td>28.35%</td>
+            <td>20.80%</td>
+        </tr>
+        <tr>
+            <td>Lightweight</td>
+            <td>46.17%</td>
+            <td>29.13%</td>
+            <td>24.70%</td>
+        </tr>
+        <tr>
+            <td>Welterweight</td>
+            <td>44.91%</td>
+            <td>33.39%</td>
+            <td>21.70%</td>
+        </tr>
+        <tr>
+            <td>Middleweight</td>
+            <td>36.60%</td>
+            <td>39.79%</td>
+            <td>23.60%</td>
+        </tr>
+        <tr>
+            <td>Light Heavyweight</td>
+            <td>33.15%</td>
+            <td>46.24%</td>
+            <td>20.61%</td>
+        </tr>
+        <tr>
+            <td>Heavyweight</td>
+            <td>25.21%</td>
+            <td>52.24%</td>
+            <td>22.55%</td>
+        </tr>
+    </table>
+</p>
+
+
+Notice how the frequency of matches that end by a decision decrease while the frequency of matches that end with a knockout/tko increase as the weight class gets heavier.
