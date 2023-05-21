@@ -1,12 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+#For reading and manipulating our data
 import pandas as pd
+
+#Our visualization libraries
 import matplotlib.pyplot as plt
 import seaborn as sns
-from tabulate import tabulate
+
+#Gives us access to some common math functions 
 import math
+
+#For the random component of our simulation
 import random as rnd
+
+#Neatly presents our simulation results
+from tabulate import tabulate
 
 df = pd.read_csv("UFC Matches April 2023.csv")
 
