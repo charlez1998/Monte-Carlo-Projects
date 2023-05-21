@@ -7,8 +7,6 @@ import seaborn as sns
 from tabulate import tabulate
 import math
 import random as rnd
-import numpy.random as npr
-import scipy.stats as ss
 
 df = pd.read_csv("UFC Matches April 2023.csv")
 
@@ -258,7 +256,7 @@ def get_fighter_parameters(fighter1, fighter2):
 #binomial prop
 
 #Simulates a single fight and returns the highest scored outcome whether it be fighter 1 wins by decision, fighter 2 wins by submission etc..
-def gameSim(matchup_df): 
+def matchSim(matchup_df): 
     results = []
 
     # Averages the random sample of a fighters's dec/ko/sub win score with a random sample of an opponent's dec/ko/sub loss score
@@ -298,7 +296,7 @@ def gameSim(matchup_df):
     else: return rnd.choice(["f1_dec", "f1_ko", "f1_sub", "f2_dec", "f2_ko", "f2_sub"])
 
 
-def gamesSim(matchup_df, ns):
+def matchesSim(matchup_df, ns):
     matchesout = []
     fighter1_decwin = 0
     fighter1_kowin = 0
@@ -308,7 +306,7 @@ def gamesSim(matchup_df, ns):
     fighter2_subwin = 0
     tie = 0
     for i in range(ns):
-        gm = gameSim(matchup_df)
+        gm = matchSim(matchup_df)
         matchesout.append(gm)
         if gm == "f1_dec":
             fighter1_decwin += 1
