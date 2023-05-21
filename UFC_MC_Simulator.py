@@ -332,6 +332,3 @@ def matchesSim(matchup_df, ns):
         [matchup_df.index[1], "Submission", str(round((fighter2_subwin / ns) * 100, 3)) + '%']]
 
     print(tabulate(results_table, headers="firstrow", tablefmt="fancy_grid"))
-
-if __name__ == "__main__":
-    pass
