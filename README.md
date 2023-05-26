@@ -6,9 +6,11 @@ I will be conducting 10,000 monte carlo simulations per matchup and will attempt
 
 NOTE: Some fighters in these three events did not have pre-existing match history on fightmetric.com and hence predictions could not be made for their matchups. As a result, out of the total 33 fights that happened across these three events, I could only make predictions for 26 of them. 
 
-(bold) Prediction Summary: 
+**Prediction Summary:** 
 Perfect (We got the winner correct and the method in which the winner won): 9/26 ≈ 34.6%
+
 2nd Highest outcome included (Perfect predictions + Next highest probability outcome was correct): 9/26 + 4/26 = 13/26 = 50%
+
 Correct winner only (We got the winner correct although the method in which the winner won was incorrect): 18/26 ≈ 69.2%
 
 ## Code and Resources Used
